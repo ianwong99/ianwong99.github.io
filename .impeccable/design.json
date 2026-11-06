@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T19:49:00-08:00",
+  "title": "Design System: Ian Wong — Dusk Research & Systems Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Twilight Slate Paper",
+        "canonical": "oklch(0.18 0.015 260)",
+        "tonalRamp": [
+          "oklch(0.14 0.015 260)",
+          "oklch(0.18 0.015 260)",
+          "oklch(0.24 0.015 260)",
+          "oklch(0.35 0.014 260)",
+          "oklch(0.50 0.012 260)",
+          "oklch(0.68 0.010 260)",
+          "oklch(0.84 0.008 260)",
+          "oklch(0.95 0.005 260)"
+        ]
+      },
+      "well": {
+        "role": "neutral",
+        "displayName": "Warm Bone Well",
+        "canonical": "oklch(0.95 0.008 75)",
+        "tonalRamp": [
+          "oklch(0.20 0.010 75)",
+          "oklch(0.32 0.010 75)",
+          "oklch(0.48 0.010 75)",
+          "oklch(0.64 0.009 75)",
+          "oklch(0.78 0.009 75)",
+          "oklch(0.88 0.008 75)",
+          "oklch(0.95 0.008 75)",
+          "oklch(0.98 0.005 75)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Periwinkle Signal",
+        "canonical": "oklch(0.70 0.14 275)",
+        "tonalRamp": [
+          "oklch(0.22 0.08 275)",
+          "oklch(0.34 0.11 275)",
+          "oklch(0.48 0.14 275)",
+          "oklch(0.60 0.16 275)",
+          "oklch(0.70 0.14 275)",
+          "oklch(0.80 0.10 275)",
+          "oklch(0.90 0.06 275)",
+          "oklch(0.96 0.02 275)"
+        ]
+      },
+      "warm": {
+        "role": "secondary",
+        "displayName": "Sunset Apricot",
+        "canonical": "oklch(0.76 0.13 55)",
+        "tonalRamp": [
+          "oklch(0.24 0.07 55)",
+          "oklch(0.38 0.10 55)",
+          "oklch(0.52 0.12 55)",
+          "oklch(0.64 0.13 55)",
+          "oklch(0.76 0.13 55)",
+          "oklch(0.84 0.09 55)",
+          "oklch(0.92 0.05 55)",
+          "oklch(0.97 0.02 55)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display (h1)",
+        "purpose": "Hero stage headline only (<= 6 words, 2 lines)."
+      },
+      "headline": {
+        "displayName": "Headline (h2)",
+        "purpose": "Section openings, set in sentence case with a period."
+      },
+      "title": {
+        "displayName": "Title (h3)",
+        "purpose": "Smoked glass pane titles, bone well headings, and experience roles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Primary prose and table cells (62ch measure)."
+      },
+      "label": {
+        "displayName": "Label / Meta",
+        "purpose": "Sentence-case metadata, dates, and table column headers."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Exponential ease-out for hover, focus, and tab transitions."
+      },
+      {
+        "name": "dur-fast",
+        "value": "140ms",
+        "purpose": "Button and row interactive feedback duration."
+      },
+      {
+        "name": "dur-med",
+        "value": "240ms",
+        "purpose": "Header glass transition duration."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "960px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Pill Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "High-contrast warm white pill CTA for primary research and contact actions.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Read NeurIPS 2025 paper</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; border-radius: 999px; background: oklch(0.97 0.005 80); color: oklch(0.16 0.01 260); font-family: 'Wix Madefor Text', sans-serif; font-size: 0.9375rem; font-weight: 500; text-decoration: none; border: 1px solid transparent; transition: background-color 140ms cubic-bezier(0.22, 1, 0.36, 1), transform 140ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-primary:hover { background: oklch(0.90 0.008 80); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(0.70 0.14 275); outline-offset: 2px; } .ds-btn-primary:active { transform: scale(0.99); }"
+    },
+    {
+      "name": "Hero Quiet Ghost Pill",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "5% translucent ghost pill with warm-white rim for secondary actions over photography.",
+      "html": "<a class=\"ds-btn-quiet\" href=\"#\">Explore FileBot Nova</a>",
+      "css": ".ds-btn-quiet { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; border-radius: 999px; background: oklch(0.98 0.005 80 / 0.05); color: oklch(0.97 0.005 80); font-family: 'Wix Madefor Text', sans-serif; font-size: 0.9375rem; font-weight: 500; text-decoration: none; border: 1px solid oklch(0.98 0.005 80 / 0.24); transition: background-color 140ms cubic-bezier(0.22, 1, 0.36, 1), border-color 140ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-quiet:hover { background: oklch(0.98 0.005 80 / 0.12); border-color: oklch(0.98 0.005 80 / 0.36); } .ds-btn-quiet:focus-visible { outline: 2px solid oklch(0.70 0.14 275); outline-offset: 2px; }"
+    },
+    {
+      "name": "Smoked Glass Ledger Row",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "Interactive smoked glass ledger row with monogram badge, periwinkle status check, and tabular metric.",
+      "html": "<div class=\"ds-glass\"><button type=\"button\" class=\"ds-row\"><span class=\"ds-init\">M</span><span class=\"ds-main\"><span class=\"ds-name\">MLE-Dojo (NeurIPS 2025)</span><span class=\"ds-meta\">Georgia Tech &amp; Stanford benchmark</span></span><span class=\"ds-num\">200+ tasks</span></button></div>",
+      "css": ".ds-glass { background: oklch(0.14 0.015 260 / 0.62); backdrop-filter: blur(28px) saturate(1.4); border: 1px solid oklch(0.98 0.005 80 / 0.10); border-radius: 16px; padding: 0.75rem; color: oklch(0.97 0.005 80); font-family: 'Wix Madefor Text', sans-serif; } .ds-row { width: 100%; display: grid; grid-template-columns: 2.25rem 1fr auto; align-items: center; gap: 0.875rem; padding: 0.75rem; background: oklch(0.98 0.005 80 / 0.09); border: none; border-radius: 8px; color: inherit; text-align: left; cursor: pointer; transition: background-color 140ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-row:hover { background: oklch(0.98 0.005 80 / 0.14); } .ds-init { width: 2.25rem; height: 2.25rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; background: oklch(0.98 0.005 80 / 0.08); border: 1px solid oklch(0.98 0.005 80 / 0.10); font-weight: 600; font-size: 0.875rem; } .ds-main { display: flex; flex-direction: column; } .ds-name { font-weight: 500; font-size: 0.9375rem; } .ds-meta { font-size: 0.8125rem; color: oklch(0.76 0.01 255); } .ds-num { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.9375rem; }"
+    },
+    {
+      "name": "Warm Bone Well",
+      "kind": "card",
+      "refersTo": "card-bone-well",
+      "description": "High-contrast warm bone container for published paper specifications and framed product screenshots.",
+      "html": "<div class=\"ds-bone-well\"><h3 class=\"ds-well-title\">MLE-Dojo: Interactive Environments for LLM Agents</h3><p class=\"ds-well-meta\">Georgia Tech &amp; Stanford, NeurIPS 2025</p></div>",
+      "css": ".ds-bone-well { background: oklch(0.95 0.008 75); color: oklch(0.16 0.01 260); border: 1px solid oklch(0.16 0.01 260 / 0.10); border-radius: 16px; padding: 2rem; font-family: 'Wix Madefor Text', sans-serif; } .ds-well-title { margin: 0 0 0.5rem; font-family: 'Wix Madefor Display', sans-serif; font-size: 1.25rem; font-weight: 500; letter-spacing: -0.015em; } .ds-well-meta { margin: 0; font-size: 0.875rem; color: oklch(0.45 0.01 260); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Smoked Glass Workbench at Dusk",
+    "overview": "This design system sets rigorous machine learning research (MLE-Dojo, NeurIPS 2025) and low-footprint native desktop engineering (FileBot Nova) against a quiet, atmospheric landscape at sunset. Rather than shouting with neon syntax gradients, floating orbs, or decorative skill progress bars, the page behaves like an interactive instrument panel suspended over a valley of fog under a warm apricot-and-slate sky.\n\nBelow the hero fold, the sky darkens into deep slate-indigo (--color-paper) where two distinct surface treatments do the work: smoked glass panes (backdrop-filter: blur(28px) saturate(1.4) with a 10% warm-white rim) for live interactive inspection, and warm bone wells (oklch(0.95 0.008 75)) that hold academic citations and desktop screenshots like lit pages on a dark desk.",
+    "keyCharacteristics": [
+      "Atmospheric Dusk Stage: Full-bleed twilight landscape under a directional dark scrim, pairing two-line display typography on the left with a smoked glass research-and-systems ledger on the right.",
+      "Dual-Surface Polarity: Smoked glass panes for interactive state inspection; warm bone wells for published artifacts.",
+      "Restrained Signal Accents: Periwinkle and sunset apricot appear strictly as 7px status dots, active row markers, and focus rings—never as flood fills or gradient washes.",
+      "Ruled Editorial Precision: Experience history and technical stack are set as clean, hairline-divided multi-column rows with tabular-nums alignment."
+    ],
+    "rules": [
+      {
+        "name": "The Signal-Dot Rule",
+        "body": "Periwinkle (--color-accent) and Apricot (--color-warm) never fill buttons, cards, or section backgrounds. They appear only on indicator dots (7px), 16px status icons, and 2px focus rings.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dual-Polarity Rule",
+        "body": "Whenever a surface switches to --color-well (Warm Bone), all child typography and hairlines must switch to --color-well-ink, --color-well-quiet, and --color-well-hair so contrast exceeds 11:1.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sentence-Case Rule",
+        "body": "Every heading, button, badge, and table header is set in sentence case. All-caps tracked labels (text-transform: uppercase; letter-spacing: 0.1em) are forbidden.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figure Rule",
+        "body": "Metrics, counts (200+ tasks, 153 KB, 1,500 students), and date ranges use font-variant-numeric: tabular-nums.",
+        "section": "typography"
+      },
+      {
+        "name": "The Single-Boundary Rule",
+        "body": "A container defines its edge with a 1px hairline border (--color-hair or --color-well-hair) OR tonal contrast—never both a hairline border and a wide box-shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the hero h1 at 6 words or fewer so it sets cleanly in 2 lines beside the smoked glass ledger.",
+      "Do use 1px solid var(--color-hair) (or --color-well-hair inside bone wells) to divide rows and metadata lists without introducing nested cards.",
+      "Do verify every interactive element has explicit :hover, :focus-visible, :active, and :disabled states and honors @media (prefers-reduced-motion: reduce).",
+      "Do credit every Commons/library photograph in the footer [data-credits] line (Thomas Bresson, CC BY 3.0, Wikimedia Commons)."
+    ],
+    "donts": [
+      "Don't place a bordered, rounded card inside another bordered, rounded .glass or .bone-well container (nested-cards).",
+      "Don't use uppercase letter-spaced eyebrows above h1 or h2 headings.",
+      "Don't hide table columns on mobile (< 40rem); restack .pane-table rows vertically so mobile visitors read the full technical content.",
+      "Don't use purple-to-blue/pink gradients, glowing orbs, or transition: all."
+    ]
+  }
+}

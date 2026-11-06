@@ -1,0 +1,31 @@
+[
+  {
+    "at": "2026-11-05T19:56:00-08:00",
+    "theme": "dusk",
+    "dials": "fog/periwinkle-apricot/glass",
+    "draw": "94e805",
+    "axes": "dark/grotesk-sans/cool",
+    "hero": "stage",
+    "shape": "feature-stack",
+    "nav": "edge-aligned",
+    "footer": "mast",
+    "imagery": "photographs, library 1, natural + product screenshots 1",
+    "entry": "personal-landing-v2.tsx",
+    "fingerprint": "stage-hero + smoked-glass-ledger + tour-pane + 2-bone-wells + ruled-exp-rows + contact-band",
+    "sections": 6,
+    "signature": "live smoked-glass research and systems ledger over dusk fog valley",
+    "prompt": "Remake Ian Wong GitHub personal landing page using Impeccable and Hallmark Dusk theme featuring NeurIPS 2025 MLE-Dojo paper and FileBot Nova",
+    "genre": "modern-minimal",
+    "redesign": "full",
+    "before": {
+      "fails": 4,
+      "reflex": 2,
+      "warns": 3
+    },
+    "after": {
+      "fails": 0,
+      "reflex": 0,
+      "warns": 0
+    }
+  }
+]
