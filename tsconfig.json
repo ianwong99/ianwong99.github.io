@@ -16,5 +16,5 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "personal-landing-v2.tsx"]
+  "include": ["src", "carbon-src", "personal-landing-v2.tsx"]
 }
