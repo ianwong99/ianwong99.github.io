@@ -625,14 +625,6 @@ const LandingPage: React.FC = () => {
                 >
                   GitHub
                 </a>
-                <a
-                  className="btn btn--quiet"
-                  href="/cv.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Curriculum Vitae
-                </a>
               </div>
             </div>
           </div>
@@ -688,16 +680,6 @@ const LandingPage: React.FC = () => {
                   rel="noopener noreferrer"
                 >
                   LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  className="site-footer__link"
-                  href="/cv.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  CV (PDF)
                 </a>
               </li>
             </ul>

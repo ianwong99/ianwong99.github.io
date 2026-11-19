@@ -342,9 +342,10 @@ export const FileBotSection: React.FC = () => {
               <img
                 src={assetUrl('assets/filebot-nova-dark.png')}
                 alt="FileBot Nova macOS dark interface showing K-Drama folder diff ledger and Gemini 3.8 Flash AI matching"
-                width="1440"
-                height="900"
+                width="2880"
+                height="1760"
                 loading="lazy"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
               />
             </figure>
             <p

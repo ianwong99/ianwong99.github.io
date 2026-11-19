@@ -93,7 +93,7 @@ export const MleDojoSection: React.FC = () => {
     <section id="research" className="section-carbon" aria-labelledby="research-heading">
       <div className="shell">
         <div className="section-kicker">
-          <span>01 / Published Benchmark</span>
+          <span>04 / Published Benchmark</span>
           <span>·</span>
           <span>NeurIPS 2025 · Georgia Tech &amp; Stanford</span>
         </div>

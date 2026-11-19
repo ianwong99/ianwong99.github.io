@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowUpRight, Check, Copy, FileText, Search, Sparkles, X } from 'lucide-react';
+import { ArrowUpRight, Briefcase, Check, Copy, Search, Sparkles, X } from 'lucide-react';
 import { ManifoldMode } from './CarbonManifoldCanvas';
 
 interface CommandPaletteProps {
@@ -47,6 +47,17 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   const actions: PaletteAction[] = useMemo(
     () => [
       {
+        id: 'jump-experience',
+        label: 'Jump to Experience (Google, AWS, Georgia Tech)',
+        hint: '#experience',
+        keywords: 'experience career google aws seattle work history',
+        icon: <Briefcase size={15} />,
+        run: () => {
+          document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+          onClose();
+        }
+      },
+      {
         id: 'copy-email',
         label: 'Copy email address (ianwong.gatech@gmail.com)',
         hint: 'Copy',
@@ -58,13 +69,13 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         }
       },
       {
-        id: 'open-paper',
-        label: 'Read NeurIPS 2025 MLE-Dojo Paper',
-        hint: 'arXiv:2505.07782',
-        keywords: 'paper neurips research mledojo pomdp stanford gatech',
+        id: 'open-linkedin',
+        label: 'Connect on LinkedIn',
+        hint: 'in/ian-wong-gt',
+        keywords: 'linkedin social profile',
         icon: <ArrowUpRight size={15} />,
         run: () => {
-          window.open('https://arxiv.org/abs/2505.07782', '_blank', 'noopener,noreferrer');
+          window.open('https://www.linkedin.com/in/ian-wong-gt/', '_blank', 'noopener,noreferrer');
           onClose();
         }
       },
@@ -80,24 +91,13 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         }
       },
       {
-        id: 'open-cv',
-        label: 'Open Curriculum Vitae (PDF)',
-        hint: 'cv.pdf',
-        keywords: 'resume cv pdf download education aws',
-        icon: <FileText size={15} />,
-        run: () => {
-          window.open(`${import.meta.env.BASE_URL}cv.pdf`, '_blank', 'noopener,noreferrer');
-          onClose();
-        }
-      },
-      {
-        id: 'open-linkedin',
-        label: 'Connect on LinkedIn',
-        hint: 'in/ian-wong-gt',
-        keywords: 'linkedin social profile',
+        id: 'open-paper',
+        label: 'Read NeurIPS 2025 MLE-Dojo Paper',
+        hint: 'arXiv:2505.07782',
+        keywords: 'paper neurips research mledojo pomdp stanford gatech',
         icon: <ArrowUpRight size={15} />,
         run: () => {
-          window.open('https://www.linkedin.com/in/ian-wong-gt/', '_blank', 'noopener,noreferrer');
+          window.open('https://arxiv.org/abs/2505.07782', '_blank', 'noopener,noreferrer');
           onClose();
         }
       },
@@ -156,7 +156,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             id="command-palette-input"
             type="text"
             className="palette-input"
-            placeholder="Jump to paper, live sandbox, CV, or copy email..."
+            placeholder="Jump to experience, sandbox, paper, or copy email..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />

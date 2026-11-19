@@ -5,7 +5,6 @@ import {
   Command,
   Copy,
   Cpu,
-  FileText,
   FlaskConical,
   Home,
   Mail
@@ -14,6 +13,7 @@ import { CarbonManifoldCanvas, ManifoldMode } from './components/CarbonManifoldC
 import {
   ArxivMark,
   GithubMark,
+  GoogleMark,
   NeuripsMark,
   SimpleSvgIcon,
   TECH_STACK_ICONS
@@ -26,65 +26,58 @@ import { assetUrl } from './assetUrl';
 
 const CAREER_ENTRIES = [
   {
-    period: 'May 2025 — Aug 2025',
+    period: 'Aug 2026 — Present',
+    org: 'Google',
+    role: 'Software Engineer (L3) · Full-time',
+    summary:
+      'Building production software systems at scale on-site in Seattle, Washington.',
+    metric: 'Seattle, WA · Full-time'
+  },
+  {
+    period: 'May 2025 — Nov 2026',
     org: 'Amazon Web Services (AWS)',
     role: 'Software Development Engineer Intern',
     summary:
-      'Automated AWS region build processes with a Python telemetry package backed by 100% CI/CD test coverage, and eliminated manual Ubuntu AMI validation via end-to-end Go release pipelines and AWS CLI verification.',
-    metric: 'Python · Go · CI/CD'
+      'Automated AWS region build processes by developing a Python package to update internal availability metrics with 100% CI/CD test coverage, and eliminated manual Ubuntu AMI validation via end-to-end Go release pipelines in Seattle, WA.',
+    metric: 'Seattle, WA · Python · Go'
   },
   {
-    period: 'Aug 2024 — Present',
+    period: 'Aug 2024 — Nov 2026',
     org: 'Georgia Institute of Technology',
-    role: 'Head Graduate Teaching Assistant',
+    role: 'Graduate Teaching Assistant',
     summary:
-      'Directing 30 graduate teaching assistants across all course sections serving 1,500 students while maintaining automated grading pipelines and online instructional infrastructure.',
-    metric: '30 TAs · 1,500 Students'
+      'Taught CS 3600 Intro to AI (Fall 2024) and CSE 6242 Data Visualization (Spring 2025), leading in-person office hours and coordinating 30 graduate TAs across 1,500 students with automated grading pipelines.',
+    metric: 'Atlanta, GA · 30 TAs · 1,500 Students'
   },
   {
-    period: 'Sept 2022 — June 2024',
-    org: 'Richmond School District',
-    role: 'Secondary Mathematics Educator',
+    period: 'Sep 2022 — Jun 2024',
+    org: 'Richmond School District No. 38',
+    role: 'Secondary School Teacher · Full-time',
     summary:
-      'Led mathematics curriculum architecture from Math 8 through Calculus 12 and engineered district-aligned proficiency assessment tooling.',
-    metric: 'Math 8 — Calculus 12'
+      'Led mathematics curriculum architecture from Math 8 through Calculus 12 and engineered district-aligned proficiency assessment tooling in Richmond, British Columbia.',
+    metric: 'Richmond, BC · Math 8 — Calc 12'
   },
   {
-    period: 'Sept 2019 — Dec 2021',
+    period: 'Sep 2019 — Dec 2021',
     org: 'University of British Columbia',
     role: 'Undergraduate Teaching Assistant',
     summary:
       'Taught Algorithms and Data Structures laboratories and office hours across 7 consecutive academic terms for cohorts of 300+ undergraduates.',
-    metric: '7 Semesters · 300+ Cohort'
+    metric: 'Vancouver, BC · 7 Semesters'
   }
 ];
 
-const ADDITIONAL_ARTIFACTS = [
-  {
-    year: '2024 · Distributed Systems & ML',
-    title: 'US Property Price Distributed Visual Analytics',
-    desc: 'Consolidated and cleaned 1,000,000+ property records across multi-node Apache Spark DataFrames, coupling Random Forest, SVM, and Deep Neural Network price predictors to a live interactive D3.js + Django interface.',
-    tags: ['PySpark (1M+ Rows)', 'D3.js', 'Deep Neural Networks', 'Django']
-  },
-  {
-    year: '2024 · Natural Language Processing',
-    title: 'Neural Misinformation Inference Engine',
-    desc: 'Engineered Word2Vec semantic embeddings paired with Random Forest and Neural Network classifiers exceeding 90% validation accuracy, deployed as a real-time article verification web app.',
-    tags: ['Word2Vec NLP', '>90% Accuracy', 'Neural Networks', 'Python']
-  }
-];
-
-function formatAtlantaTime(): string {
+function formatSeattleTime(): string {
   try {
     return new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/New_York',
+      timeZone: 'America/Los_Angeles',
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
       hour12: false
     }).format(new Date());
   } catch {
-    return 'EST';
+    return 'PST';
   }
 }
 
@@ -94,7 +87,7 @@ export const App: React.FC = () => {
   const [activeNav, setActiveNav] = useState('home');
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
-  const [atlTime, setAtlTime] = useState<string>(() => formatAtlantaTime());
+  const [seaTime, setSeaTime] = useState<string>(() => formatSeattleTime());
 
   const showToast = useCallback((msg: string) => {
     setToastMsg(msg);
@@ -115,15 +108,15 @@ export const App: React.FC = () => {
     }
   }, [showToast]);
 
-  // Live Atlanta Clock
+  // Live Seattle Clock
   useEffect(() => {
-    const id = window.setInterval(() => setAtlTime(formatAtlantaTime()), 1000);
+    const id = window.setInterval(() => setSeaTime(formatSeattleTime()), 1000);
     return () => window.clearInterval(id);
   }, []);
 
   // Scroll Spy + Header Blur
   useEffect(() => {
-    const sections = ['home', 'research', 'systems', 'dossier', 'experience', 'contact'];
+    const sections = ['home', 'experience', 'systems', 'dossier', 'research', 'contact'];
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
       const probe = 180;
@@ -155,10 +148,10 @@ export const App: React.FC = () => {
 
   const navLinks = [
     { id: 'home', label: 'Overview' },
-    { id: 'research', label: 'MLE-Dojo' },
+    { id: 'experience', label: 'Experience' },
     { id: 'systems', label: 'FileBot Nova' },
     { id: 'dossier', label: 'Dossier' },
-    { id: 'experience', label: 'Experience' },
+    { id: 'research', label: 'Publication' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -181,7 +174,7 @@ export const App: React.FC = () => {
             </span>
             <span className="brand-mark__text">
               <span className="brand-mark__name">Ian Wong</span>
-              <span className="brand-mark__role">ML Research · Native Systems</span>
+              <span className="brand-mark__role">Software Engineer · Google</span>
             </span>
           </a>
 
@@ -198,9 +191,9 @@ export const App: React.FC = () => {
           </nav>
 
           <div className="top-bar__telemetry">
-            <div className="telemetry-clock" aria-label="Current time in Atlanta, Georgia">
+            <div className="telemetry-clock" aria-label="Current time in Seattle, Washington">
               <span className="live-dot" aria-hidden="true" />
-              <span>ATL {atlTime}</span>
+              <span>SEA {seaTime}</span>
             </div>
 
             <button
@@ -231,34 +224,27 @@ export const App: React.FC = () => {
               <div className="hero-index-line">
                 <span>Ian Shu-Hei Wong</span>
                 <span className="hero-index-line__sep">/</span>
-                <span>Georgia Tech MS CS (ML)</span>
+                <span>Software Engineer @ Google</span>
                 <span className="hero-index-line__sep">/</span>
-                <span>NeurIPS 2025</span>
+                <span>Seattle, WA</span>
               </div>
 
               <h1 className="hero-headline">
-                <span className="serif-italic">Autonomous</span> environments &amp;{' '}
+                <span className="serif-italic">Production</span> systems &amp;{' '}
                 <span className="serif-italic">native</span> tools.
               </h1>
 
               <p className="hero-subcopy">
-                Machine learning researcher and systems engineer building executable POMDP
-                benchmarks for LLM agents (<strong>MLE-Dojo, NeurIPS 2025</strong>), zero-dependency{' '}
+                Software Engineer (L3) at <strong>Google</strong> in Seattle, WA. Previously built
+                cloud release infrastructure at <strong>AWS</strong>, zero-dependency{' '}
                 <strong className="num">153 KB</strong> native desktop software (<strong>FileBot Nova</strong>),
-                and automated cloud release infrastructure at <strong>AWS</strong>.
+                and co-authored executable POMDP benchmarks for LLM agents (<strong>MLE-Dojo, NeurIPS 2025</strong>).
               </p>
 
               <div className="hero-cta-row">
-                <a
-                  id="hero-paper-cta"
-                  href="https://arxiv.org/abs/2505.07782"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  <ArxivMark size={16} />
-                  <span>NeurIPS 2025 Paper</span>
-                  <ArrowUpRight size={16} />
+                <a id="hero-experience-cta" href="#experience" className="btn-primary">
+                  <Briefcase size={16} />
+                  <span>Experience</span>
                 </a>
 
                 <a id="hero-systems-cta" href="#systems" className="btn-carbon">
@@ -266,14 +252,14 @@ export const App: React.FC = () => {
                 </a>
 
                 <a
-                  id="hero-cv-cta"
-                  href={assetUrl('cv.pdf')}
+                  id="hero-linkedin-cta"
+                  href="https://www.linkedin.com/in/ian-wong-gt/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-carbon"
                 >
-                  <FileText size={16} />
-                  <span>CV (PDF)</span>
+                  <span>LinkedIn</span>
+                  <ArrowUpRight size={16} />
                 </a>
               </div>
             </div>
@@ -314,16 +300,16 @@ export const App: React.FC = () => {
 
               <div className="manifold-stats">
                 <div className="manifold-stat">
-                  <span className="manifold-stat__val num">200+</span>
-                  <span className="manifold-stat__lbl">Kaggle POMDP Tasks</span>
+                  <span className="manifold-stat__val">Google</span>
+                  <span className="manifold-stat__lbl">SWE (L3) · Seattle, WA</span>
                 </div>
                 <div className="manifold-stat">
                   <span className="manifold-stat__val num">153 KB</span>
-                  <span className="manifold-stat__lbl">macOS Native Client</span>
+                  <span className="manifold-stat__lbl">FileBot Nova Native App</span>
                 </div>
                 <div className="manifold-stat">
-                  <span className="manifold-stat__val num">1,500</span>
-                  <span className="manifold-stat__lbl">Students Led (Head TA)</span>
+                  <span className="manifold-stat__val num">200+</span>
+                  <span className="manifold-stat__lbl">NeurIPS 2025 ML Tasks</span>
                 </div>
                 <div className="manifold-stat">
                   <span className="manifold-stat__val num">4.00</span>
@@ -342,10 +328,19 @@ export const App: React.FC = () => {
           <div className="shell affiliation-strip">
             <div className="affiliation-strip__grid">
               <span className="affiliation-strip__label">
-                Research, Industry &amp; Academic Lineage
+                Industry, Research &amp; Academic Lineage
               </span>
 
               <div className="affiliation-logos">
+                <div className="affiliation-item" title="Google (Software Engineer L3)">
+                  <GoogleMark size={20} />
+                  <span className="affiliation-item__caption">Google</span>
+                </div>
+
+                <div className="affiliation-item" title="Amazon Web Services (SDE Intern)">
+                  <img src={assetUrl('assets/aws-dark.svg')} alt="Amazon Web Services" width="42" height="25" />
+                </div>
+
                 <div className="affiliation-item" title="Georgia Institute of Technology">
                   <img src={assetUrl('assets/gatech-dark.svg')} alt="Georgia Tech" width="38" height="24" />
                   <span className="affiliation-item__caption">Georgia Tech</span>
@@ -354,10 +349,6 @@ export const App: React.FC = () => {
                 <div className="affiliation-item" title="NeurIPS 2025 Main Track / Datasets & Benchmarks">
                   <NeuripsMark size={22} />
                   <span className="affiliation-item__caption">NeurIPS 2025</span>
-                </div>
-
-                <div className="affiliation-item" title="Amazon Web Services (SDE Intern)">
-                  <img src={assetUrl('assets/aws-dark.svg')} alt="Amazon Web Services" width="42" height="25" />
                 </div>
 
                 <div className="affiliation-item" title="Stanford University (MLE-Dojo Co-Authors)">
@@ -386,36 +377,24 @@ export const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Anchor alias for legacy #projects links */}
-        <div id="projects" />
-
-        {/* Section 01: NeurIPS 2025 MLE-Dojo Interactive Rollout */}
-        <MleDojoSection />
-
-        {/* Section 02: Alabaster Contrast — FileBot Nova Live Sandbox */}
-        <FileBotSection />
-
-        {/* Section 03: Atmospheric Dual-Video & Campus Dossier */}
-        <CinemaDossierSection />
-
         {/* ================================================================
-            SECTION 04: EXPERIENCE LEDGER & ADDITIONAL ENGINEERING ARTIFACTS
+            SECTION 01: EXPERIENCE LEDGER (FIRST)
             ================================================================ */}
         <section id="experience" className="section-carbon" aria-labelledby="experience-heading">
           <div className="shell">
             <div className="section-kicker">
-              <span>04 / Engineering &amp; Teaching Record</span>
+              <span>01 / Engineering &amp; Career Record</span>
               <span>·</span>
-              <span>2019 — 2026</span>
+              <span>2019 — Present</span>
             </div>
 
             <div className="section-header-split">
               <h2 id="experience-heading" className="section-title">
-                Cloud pipelines and <span className="serif-italic">rigorous</span> classrooms.
+                Cloud infrastructure and <span className="serif-italic">production</span> engineering.
               </h2>
               <p className="section-lead">
-                Four institutions spanning cloud infrastructure engineering at AWS, graduate-scale
-                autograding systems at Georgia Tech, and mathematics education.
+                Software engineering at Google and Amazon Web Services in Seattle, alongside
+                graduate-scale AI instruction at Georgia Tech and mathematics education in British Columbia.
               </p>
             </div>
 
@@ -432,29 +411,20 @@ export const App: React.FC = () => {
                 </article>
               ))}
             </div>
-
-            <div className="lab-projects-grid">
-              {ADDITIONAL_ARTIFACTS.map((proj) => (
-                <article key={proj.title} className="lab-card">
-                  <div>
-                    <div className="lab-card__meta">
-                      <span>{proj.year}</span>
-                    </div>
-                    <h3 className="lab-card__title">{proj.title}</h3>
-                    <p className="lab-card__desc">{proj.desc}</p>
-                  </div>
-                  <div className="lab-card__tags">
-                    {proj.tags.map((t) => (
-                      <span key={t} className="lab-tag">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
           </div>
         </section>
+
+        {/* Anchor alias for legacy #projects links */}
+        <div id="projects" />
+
+        {/* Section 02: Alabaster Contrast — FileBot Nova Live Sandbox */}
+        <FileBotSection />
+
+        {/* Section 03: Atmospheric Dual-Video & Operating Context Dossier */}
+        <CinemaDossierSection />
+
+        {/* Section 04: NeurIPS 2025 MLE-Dojo Publication (Later) */}
+        <MleDojoSection />
 
         {/* ================================================================
             SECTION 05: SCHOLASTIC DISTINCTIONS & CONTACT MONOLITH
@@ -464,7 +434,7 @@ export const App: React.FC = () => {
             <div id="about" className="section-kicker">
               <span>05 / Honors &amp; Direct Dispatch</span>
               <span>·</span>
-              <span>Atlanta, GA</span>
+              <span>Seattle, WA</span>
             </div>
 
             <div className="honors-grid" aria-label="Academic honors">
@@ -496,13 +466,13 @@ export const App: React.FC = () => {
             <div className="contact-monolith">
               <div className="contact-monolith__grid">
                 <div>
-                  <div className="section-kicker">Available May 2026 · ML &amp; Systems Engineering</div>
+                  <div className="section-kicker">Seattle, WA · Software &amp; ML Systems</div>
                   <h2 id="contact-heading" className="section-title" style={{ marginBottom: '1rem' }}>
                     Let’s build something <span className="serif-italic">enduring</span>.
                   </h2>
                   <p className="section-lead" style={{ maxWidth: '48ch' }}>
-                    Based in Atlanta, GA. Reach out directly for machine learning research
-                    collaborations, systems engineering roles, or technical inquiries.
+                    Based in Seattle, Washington. Reach out directly for machine learning research
+                    collaborations, open-source software, or technical inquiries.
                   </p>
 
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1.65rem' }}>
@@ -567,22 +537,6 @@ export const App: React.FC = () => {
                       2505.07782 <ArrowUpRight size={14} style={{ display: 'inline', verticalAlign: 'middle' }} />
                     </span>
                   </a>
-
-                  <a
-                    id="footer-cv"
-                    href={assetUrl('cv.pdf')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-link-row"
-                  >
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <FileText size={16} />
-                      <span>Curriculum Vitae</span>
-                    </span>
-                    <span className="contact-link-row__meta">
-                      PDF · 1 Page <ArrowUpRight size={14} style={{ display: 'inline', verticalAlign: 'middle' }} />
-                    </span>
-                  </a>
                 </div>
               </div>
             </div>
@@ -594,7 +548,7 @@ export const App: React.FC = () => {
       <footer className="site-colophon">
         <div className="shell site-colophon__row">
           <div className="mono">
-            © {new Date().getFullYear()} Ian Wong (Ian Shu-Hei Wong) · Engineered in Atlanta, GA
+            © {new Date().getFullYear()} Ian Wong (Ian Shu-Hei Wong) · Seattle, WA
           </div>
           <div className="mono" style={{ fontSize: '0.72rem' }}>
             Media: NASA ISS Expedition 69 &amp; ORNL Frontier (Public Domain), Wikimedia Commons (CC BY-SA), Unsplash.
@@ -612,11 +566,11 @@ export const App: React.FC = () => {
           <span>Top</span>
         </a>
         <a
-          href="#research"
-          className={`mobile-dock__item ${activeNav === 'research' ? 'is-active' : ''}`}
+          href="#experience"
+          className={`mobile-dock__item ${activeNav === 'experience' ? 'is-active' : ''}`}
         >
-          <FlaskConical size={16} />
-          <span>Paper</span>
+          <Briefcase size={16} />
+          <span>Career</span>
         </a>
         <a
           href="#systems"
@@ -626,11 +580,11 @@ export const App: React.FC = () => {
           <span>Nova</span>
         </a>
         <a
-          href="#experience"
-          className={`mobile-dock__item ${activeNav === 'experience' ? 'is-active' : ''}`}
+          href="#research"
+          className={`mobile-dock__item ${activeNav === 'research' ? 'is-active' : ''}`}
         >
-          <Briefcase size={16} />
-          <span>Career</span>
+          <FlaskConical size={16} />
+          <span>Paper</span>
         </a>
         <button
           id="mobile-dock-actions"

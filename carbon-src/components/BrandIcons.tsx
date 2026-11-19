@@ -11,6 +11,7 @@ import {
   siD3,
   siApachespark,
   siApple,
+  siGoogle,
   siGooglegemini,
   siGithub,
   siArxiv,
@@ -58,6 +59,10 @@ export const SimpleSvgIcon: React.FC<{
   >
     <path d={icon.path} />
   </svg>
+);
+
+export const GoogleMark: React.FC<{ size?: number }> = ({ size = 18 }) => (
+  <SimpleSvgIcon icon={siGoogle} size={size} />
 );
 
 export const GithubMark: React.FC<{ size?: number }> = ({ size = 16 }) => (

@@ -36,7 +36,7 @@ export const CinemaDossierSection: React.FC = () => {
           <div className="section-kicker" style={{ marginBottom: 0 }}>
             <span>03 / Field Notes &amp; Operating Context</span>
             <span>·</span>
-            <span>Atlanta &amp; Vancouver</span>
+            <span>Seattle · Atlanta · Vancouver</span>
           </div>
 
           <button
@@ -56,8 +56,8 @@ export const CinemaDossierSection: React.FC = () => {
             Trained in <span className="serif-italic">proof</span>, shipped at cloud scale.
           </h2>
           <p className="section-lead">
-            From pure mathematics and pedagogy at the University of British Columbia (<strong className="num">4.00 / 4.00</strong> GPA)
-            to AWS region build pipelines and graduate machine learning research in Atlanta.
+            From pure mathematics at the University of British Columbia (<strong className="num">4.00 / 4.00</strong> GPA)
+            and graduate machine learning research at Georgia Tech to production software engineering in Seattle.
           </p>
         </div>
 
@@ -77,16 +77,16 @@ export const CinemaDossierSection: React.FC = () => {
             />
             <div className="cinema-tile__scrim" aria-hidden="true" />
             <div className="cinema-tile__top">
-              <span className="cinema-tag">AWS Cloud Infrastructure · Summer 2025</span>
+              <span className="cinema-tag">47.6062° N, 122.3321° W · Seattle, WA</span>
               <span className="cinema-tag" style={{ color: 'var(--gold)' }}>
-                100% CI/CD · Python &amp; Go
+                Google · AWS
               </span>
             </div>
             <div className="cinema-tile__body">
-              <h3 className="cinema-tile__title">Region build telemetry &amp; AMI validation</h3>
+              <h3 className="cinema-tile__title">Production cloud &amp; release engineering</h3>
               <p className="cinema-tile__desc">
-                Engineered automated Python availability metric packages and end-to-end Go release
-                pipelines validating Ubuntu machine images across AWS regions without manual intervention.
+                Software Engineer (L3) at Google in Seattle. Previously automated AWS region build
+                telemetry in Python with full CI/CD coverage and built end-to-end Go pipelines for Ubuntu AMI validation.
               </p>
             </div>
           </article>
@@ -113,9 +113,9 @@ export const CinemaDossierSection: React.FC = () => {
             <div className="cinema-tile__body">
               <h3 className="cinema-tile__title">Georgia Institute of Technology</h3>
               <p className="cinema-tile__desc">
-                M.S. Computer Science (Machine Learning, May 2026). Head Graduate TA coordinating{' '}
-                <strong className="num">30</strong> TAs and autograding systems for{' '}
-                <strong className="num">1,500</strong> students.
+                M.S. Computer Science (Machine Learning). Graduate Teaching Assistant for CS 3600
+                Intro to AI &amp; CSE 6242 Data Visualization, coordinating{' '}
+                <strong className="num">30</strong> TAs across <strong className="num">1,500</strong> students.
               </p>
             </div>
           </article>
@@ -161,14 +161,14 @@ export const CinemaDossierSection: React.FC = () => {
             />
             <div className="cinema-tile__scrim" aria-hidden="true" />
             <div className="cinema-tile__top">
-              <span className="cinema-tag">Hardware-Software Co-Design</span>
-              <span className="cinema-tag">Scale-SIM · Astra-SIM</span>
+              <span className="cinema-tag">Systems &amp; ML Infrastructure</span>
+              <span className="cinema-tag">Python · Go · C++</span>
             </div>
             <div className="cinema-tile__body">
-              <h3 className="cinema-tile__title">Distributed data &amp; accelerator modeling</h3>
+              <h3 className="cinema-tile__title">Reliability from bare metal to agents</h3>
               <p className="cinema-tile__desc">
-                From multi-node PySpark pipelines over 1M+ US property records to systolic array
-                and distributed ML interconnect simulation.
+                Focused on deterministic release automation, zero-bloat native desktop tooling,
+                and executable reinforcement learning sandboxes.
               </p>
             </div>
           </article>
